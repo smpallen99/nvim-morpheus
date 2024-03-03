@@ -23,6 +23,8 @@ return {
         "tsx",
         "typescript",
         "yaml",
+        "elixir",
+        "vue"
       }
     },
     config = function(_, opts)
@@ -50,6 +52,9 @@ return {
         "tailwindcss",
         "tsserver",
         "yamlls",
+        "elixirls",
+        "vue",
+        "prettier",
       },
     }
   },
@@ -58,7 +63,7 @@ return {
     opts = {
       ensure_installed = {
         "beautysh",
-        "cspell",
+        -- "cspell",
         "prettierd",
         "luacheck",
         "markdownlint",
@@ -72,6 +77,7 @@ return {
         "sql_formatter",
         "yamlfmt",
         "yamllint",
+        "elixir",
       },
       automatic_installation = true,
     }
@@ -89,7 +95,7 @@ return {
 
       config.sources = {
         -- Code Actions
-        null_ls.builtins.code_actions.cspell,
+        -- null_ls.builtins.code_actions.cspell,
         null_ls.builtins.code_actions.eslint_d,
         null_ls.builtins.code_actions.shellcheck,
         null_ls.builtins.code_actions.gitsigns,
@@ -99,7 +105,7 @@ return {
         null_ls.builtins.completion.tags,
 
         -- Diagnostics
-        null_ls.builtins.diagnostics.cspell,
+        -- null_ls.builtins.diagnostics.cspell,
         null_ls.builtins.diagnostics.dotenv_linter,
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.diagnostics.jsonlint,
@@ -112,7 +118,7 @@ return {
         null_ls.builtins.diagnostics.yamllint,
         null_ls.builtins.diagnostics.zsh,
 
-        -- Formatting
+        -- FormattingA
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.json_tool,
         null_ls.builtins.formatting.markdownlint,

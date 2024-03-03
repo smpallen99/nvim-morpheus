@@ -5,6 +5,7 @@ return {
   ArrowRight = "",
   Bookmarks = "",
   BufferClose = "󰅖",
+  CodeAssistant = "󰁤",
   DapBreakpoint = "",
   DapBreakpointCondition = "",
   DapBreakpointRejected = "",

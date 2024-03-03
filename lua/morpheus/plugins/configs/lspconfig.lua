@@ -46,7 +46,7 @@ return function(_, _)
   if require("morpheus.utils").is_available "mason-lspconfig.nvim" then
     vim.api.nvim_create_autocmd("User", {
       desc = "set up LSP servers after mason-lspconfig",
-      pattern = "AstroMasonLspSetup",
+      pattern = "MorpheusMasonLspSetup",
       once = true,
       callback = setup_servers,
     })

@@ -40,7 +40,7 @@ return {
   --     },
   --   },
   -- },
-  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   -- {
   --   "m4xshen/smartcolumn.nvim",
   --   opts = {

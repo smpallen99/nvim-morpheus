@@ -54,4 +54,73 @@ return {
       return opts
     end,
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        panel = { enabled = false },
+        suggestion = { enabled = false, auto_trigger = true },
+      }
+    end,
+  },
+  -- after much trouble shooting, I found this config in
+  -- https://www.lazyvim.org/extras/coding/copilot
+  -- I had to copy the more involed config below
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = "copilot.lua",
+    opts = {},
+    config = function(_, opts)
+      local copilot_cmp = require "copilot_cmp"
+      copilot_cmp.setup(opts)
+      -- attach cmp source whenever copilot attaches
+      -- fixes lazy-loading issues with the copilot cmp source
+      on_attach = function(client)
+        if client.name == "copilot" then copilot_cmp._on_insert_enter {} end
+      end
+    end,
+  },
+  {
+    "nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = "copilot.lua",
+        opts = {},
+        config = function(_, opts)
+          local copilot_cmp = require "copilot_cmp"
+          copilot_cmp.setup(opts)
+          -- attach cmp source whenever copilot attaches
+          -- fixes lazy-loading issues with the copilot cmp source
+          on_attach = function(client)
+            if client.name == "copilot" then copilot_cmp._on_insert_enter {} end
+          end
+        end,
+      },
+    },
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "copilot",
+        group_index = 1,
+        priority = 100,
+      })
+    end,
+  },
+
+  {
+    "robitx/gp.nvim",
+    enable = true,
+    lazy = false,
+    config = function()
+      require("gp").setup(require "morpheus.user.plugins.configs.gp")
+
+      -- or setup with your own config (see Install > Configuration in Readme)
+      -- require("gp").setup(config)
+
+      -- shortcuts might be setup here (see Usage > Shortcuts in Readme)
+    end,
+  },
+
 }

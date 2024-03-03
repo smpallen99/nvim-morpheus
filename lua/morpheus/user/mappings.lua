@@ -1,22 +1,22 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+--
 return {
   -- first key is the mode
   n = {
     -- second key is the lefthand side of the map
-    ["<leader>r"] = { "<cmd>b#<cr>", desc = "Last buffer" },
     ["<leader>a"] = { "<cmd>A<cr>", desc = "Alternate File" },
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 
     -- quit
-
     ["<leader>Q"] = { "<cmd>qa<cr>", desc = "Quit all" },
 
     -- buffer
     --
     ["<TAB>"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
     ["<S-TAB>"] = { "<cmd>bprevious<cr>", desc = "Prev buffer" },
+    ["<leader>r"] = { "<cmd>b#</cr>", desc = "Last buffer" },
 
     -- tabs
     ["<leader><tab>"] = { desc = "Tabs" },
@@ -28,6 +28,7 @@ return {
     ["<leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
     ["<leader><tab>d"] = { "<cmd>tabclose<cr>", desc = "Close Tab" },
     ["<leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
+
 
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus

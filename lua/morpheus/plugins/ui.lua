@@ -77,13 +77,13 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-    event = "User AstroFile",
+    event = "User MorpheusFile",
     cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffers" },
     opts = { user_default_options = { names = false } },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "User AstroFile",
+    event = "User MorpheusFile",
     main = "ibl",
     opts = {
       indent = { char = "▏" },

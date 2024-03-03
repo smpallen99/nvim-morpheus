@@ -1,23 +1,23 @@
 --- ### AstroNvim Core Bootstrap
 --
--- This module simply sets up the global `astronvim` module.
--- This is automatically loaded and should not be resourced, everything is accessible through the global `astronvim` variable.
+-- This module simply sets up the global `morpheus` module.
+-- This is automatically loaded and should not be resourced, everything is accessible through the global `morpheus` variable.
 --
--- @module astronvim.bootstrap
+-- @module morpheus.bootstrap
 -- @copyright 2022
 -- @license GNU General Public License v3.0
 
 _G.morpheus = {}
 
 --- installation details from external installers
-morpheus.install = _G["astronvim_installation"] or { home = vim.fn.stdpath("config") }
+morpheus.install = _G["morpheus_installation"] or { home = vim.fn.stdpath("config") }
 morpheus.supported_configs = { morpheus.install.home }
---- external astronvim configuration folder
+--- external morpheus configuration folder
 morpheus.install.config = vim.fn.stdpath("config"):gsub("[^/\\]+$", "morpheus")
 -- check if they are the same, protects against NVIM_APPNAME use for isolated install
 if morpheus.install.home ~= morpheus.install.config then
 	vim.opt.rtp:append(morpheus.install.config)
-	--- supported astronvim user config folders
+	--- supported morpheus user config folders
 	table.insert(morpheus.supported_configs, morpheus.install.config)
 end
 
@@ -78,7 +78,7 @@ local function func_or_extend(overrides, default, extend)
 end
 
 --- user settings from the base `user/init.lua` file
-local user_settings = load_module_file("user.init")
+local user_settings = load_module_file("morpheus.user.init")
 
 --- Search the user settings (user/init.lua table) for a table with a module like path string
 -- @param module the module path like string to look up in the user settings table
@@ -113,7 +113,7 @@ function morpheus.user_opts(module, default, extend)
 		default = {}
 	end
 	-- try to load a module file if it exists
-	local user_module_settings = load_module_file("user." .. module)
+	local user_module_settings = load_module_file("morpheus.user." .. module)
 	-- if no user module file is found, try to load an override from the user settings table from user/init.lua
 	if user_module_settings == nil then
 		user_module_settings = user_setting_table(module)
