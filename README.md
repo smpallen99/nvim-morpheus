@@ -1,5 +1,12 @@
 # Morpheus Nvim
 
+This is my personal configuration for neovim. I started with [lazyman's](https://lazyman.dev) [Modular](https://github.com/VonHeikemen/nvim-starter/tree/05-modular) configuration
+and ported most of [AstroNvimPlus](https://astronvim.lazyman.dev/posts/AstroNvimPlus/) from lazyman while changing the structure a little.
+
+This is still very much Work in Progress! It isn't ready for general used yet (or perhaps, never).
+
+You can find some of the original content from the original README.md file below. It is probably out of date with what I currently have configured.
+
 ## Configurations
 
 ### Minimal
@@ -232,15 +239,5 @@ Leader key: `Space`.
 | [targets.vim](https://github.com/wellle/targets.vim)                                          | Creates new textobjects.                                            |
 | [vim-repeat](https://github.com/tpope/vim-repeat)                                             | Add "repeat" support for plugins.                                   |
 | [vim-bbye](https://github.com/moll/vim-bbye)                                                  | Close buffers without closing the current window.                   |
-| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)                                      | Collection of modules. Used internaly by other plugins.             |
-| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)                                 | Manage terminal windows easily.                                     |
-| [mason.nvim](https://github.com/williamboman/mason.nvim)                                      | Portable package manager for Neovim.                                |
-| [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)                  | Integrates nvim-lspconfig and mason.nvim.                           |
-| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                    | Quickstart configs for Neovim's LSP client.                         |
-| [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                                               | Autocompletion engine.                                              |
-| [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)                                           | nvim-cmp source. Suggest words in the current buffer.               |
-| [cmp-path](https://github.com/hrsh7th/cmp-path)                                               | nvim-cmp source. Show suggestions based on file system paths.       |
-| [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)                                    | nvim-cmp source. Show suggestions based on installed snippets.      |
-| [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)                                       | nvim-cmp source. Show suggestions based on LSP servers queries.     |
-| [LuaSnip](https://github.com/L3MON4D3/LuaSnip)                                                | Snippet engine.                                                     |
-| [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)                          | Collection of snippets.                                             |
+
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
