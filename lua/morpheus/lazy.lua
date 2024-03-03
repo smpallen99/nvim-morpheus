@@ -30,7 +30,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then -- TODO: REMOVE vim.loop WHEN
 end
 vim.opt.rtp:prepend(lazypath)
 
-local user_plugins = morpheus.user_opts "plugins"
+local user_plugins = morpheus.user_opts "morpheus.plugins"
 for _, config_dir in ipairs(morpheus.supported_configs) do
   if vim.fn.isdirectory(config_dir .. "/lua/morpheus/user/plugins") == 1 then
     user_plugins = { import = "morpheus.user.plugins" }
