@@ -27,7 +27,7 @@ function M.reload(quiet)
 	if not was_modifiable then
 		vim.opt.modifiable = true
 	end
-	local core_modules = { "astronvim.bootstrap", "astronvim.options", "astronvim.mappings" }
+	local core_modules = { "morpheus.bootstrap", "morpheus.options", "morpheus.mappings" }
 	local modules = vim.tbl_filter(function(module)
 		return module:find("^user%.")
 	end, vim.tbl_keys(package.loaded))
@@ -47,9 +47,9 @@ function M.reload(quiet)
 	end
 	if not quiet then -- if not quiet, then notify of result
 		if success then
-			M.notify("AstroNvim successfully reloaded", vim.log.levels.INFO)
+			M.notify("MorpheusNvim successfully reloaded", vim.log.levels.INFO)
 		else
-			M.notify("Error reloading AstroNvim...", vim.log.levels.ERROR)
+			M.notify("Error reloading MorpheusNvim...", vim.log.levels.ERROR)
 		end
 	end
 	vim.cmd.doautocmd("ColorScheme")
@@ -100,14 +100,17 @@ end
 ---@param no_fallback? boolean Whether or not to disable fallback to text icon
 ---@return string icon
 function M.get_icon(kind, padding, no_fallback)
+	-- local icons_enabled = vim.g.icons_enabled
+	-- vim.notify(vim.inspect({ kind, padding, no_fallback, icons_enabled }))
 	if not vim.g.icons_enabled and no_fallback then
 		return ""
 	end
 	local icon_pack = vim.g.icons_enabled and "icons" or "text_icons"
 	if not M[icon_pack] then
-		M.icons = astronvim.user_opts("icons", require("astronvim.icons.nerd_font"))
-		M.text_icons = astronvim.user_opts("text_icons", require("astronvim.icons.text"))
+		M.icons = morpheus.user_opts("icons", require("morpheus.icons.nerd_font"))
+		M.text_icons = morpheus.user_opts("text_icons", require("morpheus.icons.text"))
 	end
+	 -- vim.notify(vim.inspect({ "icons", M.icons, "text_icons", M.text_icons  }))
 	local icon = M[icon_pack] and M[icon_pack][kind]
 	return icon and icon .. string.rep(" ", padding or 0) or ""
 end
@@ -166,7 +169,7 @@ end
 ---@param opts? table The nvim-notify options to use (:help notify-options)
 function M.notify(msg, type, opts)
 	vim.schedule(function()
-		vim.notify(msg, type, M.extend_tbl({ title = "AstroNvim" }, opts))
+		vim.notify(msg, type, M.extend_tbl({ title = "Morpheus" }, opts))
 	end)
 end
 
@@ -175,7 +178,7 @@ end
 ---@param delay? boolean Whether or not to delay the event asynchronously (Default: true)
 function M.event(event, delay)
 	local emit_event = function()
-		vim.api.nvim_exec_autocmds("User", { pattern = "Astro" .. event, modeline = false })
+		vim.api.nvim_exec_autocmds("User", { pattern = "Morpheus" .. event, modeline = false })
 	end
 	if delay == false then
 		emit_event()
@@ -221,7 +224,7 @@ end
 --- Toggle a user terminal if it exists, if not then create a new one and save it
 ---@param opts string|table A terminal command string or a table of options for Terminal:new() (Check toggleterm.nvim documentation for table format)
 function M.toggle_term_cmd(opts)
-	local terms = astronvim.user_terminals
+	local terms = morpheus.user_terminals
 	-- if a command string is provided, create a basic table for Terminal:new() options
 	if type(opts) == "string" then
 		opts = { cmd = opts, hidden = true }
