@@ -2,9 +2,9 @@
 --
 -- Various utility functions to use within AstroNvim and user configurations.
 --
--- This module can be loaded with `local utils = require "astronvim.utils"`
+-- This module can be loaded with `local utils = require "morpheus.utils"`
 --
--- @module astronvim.utils
+-- @module morpheus.utils
 -- @copyright 2022
 -- @license GNU General Public License v3.0
 
@@ -95,7 +95,7 @@ function M.conditional_func(func, condition, ...)
 end
 
 --- Get an icon from the AstroNvim internal icons if it is available and return it
----@param kind string The kind of icon in astronvim.icons to retrieve
+---@param kind string The kind of icon in morpheus.icons to retrieve
 ---@param padding? integer Padding to add to the end of the icon
 ---@param no_fallback? boolean Whether or not to disable fallback to text icon
 ---@return string icon
