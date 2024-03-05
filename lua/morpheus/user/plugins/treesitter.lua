@@ -3,7 +3,34 @@ return {
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
     opts.ensure_installed = require("morpheus.utils").list_insert_unique(opts.ensure_installed, {
-      -- "lua"
+        "bash",
+        -- "haskell",
+        "markdown",
+        "toml",
+        "yaml",
+        "lua",
+        -- "python",
+        -- "java",
+        "javascript",
+        "typescript",
+        -- "c",
+        -- "cpp",
+        "rust",
+        "scss",
+        "swift",
+        "ruby",
+        -- "php",
+        "make",
+        "json",
+        "html",
+        "graphql",
+        -- "go",
+        "erlang",
+        "elixir",
+        "eex",
+        "heex",
+        -- "surface",
+        "dockerfile",
     })
   end,
 }

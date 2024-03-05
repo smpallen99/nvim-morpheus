@@ -59,4 +59,9 @@ end
 
 require("morpheus.utils").conditional_func(morpheus.user_opts("polish", nil, false), true)
 
--- require("morpheus")
+local settings = require("configuration")
+
+if settings.enable_transparent then
+  require("transparent").clear_prefix("NeoTree")
+end
+

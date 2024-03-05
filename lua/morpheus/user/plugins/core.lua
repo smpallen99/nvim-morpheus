@@ -82,6 +82,12 @@ return {
       end
     end,
   },
+-- Plugin `windwp/nvim-spectre` was renamed to `nvim-pack/nvim-spectre`.
+-- Please update your config for `plugins.0-disabled`Plugin `jose-elias-alvarez/null-ls.nvim` was renamed to `nvimtools/none-ls.nvim`.
+-- Please update your config for `plugins.3-formatter``dashboard.nvim` is now the default LazyVim starter plugin.
+--
+-- To keep using `alpha.nvim`, please enable the `lazyvim.plugins.extras.ui.alpha` extra.
+-- Or to hide this message, remove the alpha spec from your config.^C%            
   {
     "nvim-cmp",
     dependencies = {

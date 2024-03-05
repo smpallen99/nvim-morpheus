@@ -23,6 +23,8 @@ local sections = {
 -- Space as leader key
 vim.g.mapleader = " "
 
+maps.n["<leader>uT"] = { "<cmd>:TransparentToggle<cr>", desc = "TransparentToggle" }
+maps.n["<leader>r"] = { "<cmd>:b#<cr>", desc = "Previous buffer" }
 -- Normal --
 -- Standard Operations
 maps.n["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
@@ -296,8 +298,13 @@ if is_available "toggleterm.nvim" then
     maps.n["<leader>gg"] = {
       function()
         local worktree = require("morpheus.utils.git").file_worktree()
-        local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir) or ""
-        utils.toggle_term_cmd("lazygit " .. flags)
+        -- local flags = worktree and (" --work-tree=%s --git-dir=%s"):format(worktree.toplevel, worktree.gitdir) or ""
+        -- utils.toggle_term_cmd("lazygit " .. flags)
+        utils.toggle_term_cmd({ 
+          cmd = "lazygit",
+          direction = "float",
+          -- float_opts = { border = "double" },
+        })
       end,
       desc = "ToggleTerm lazygit",
     }
@@ -602,5 +609,5 @@ maps.v[ai_leader .. "wn"] = { ":<C-u>'<,'>GpWhisperNew<cr>", desc = "Visual Whis
 maps.v[ai_leader .. "wv"] = { ":<C-u>'<,'>GpWhisperVnew<cr>", desc = "Visual Whisper Vnew" }
 maps.v[ai_leader .. "wt"] = { ":<C-u>'<,'>GpWhisperTabnew<cr>", desc = "Visual Whisper Tabnew" }
 
-utils.set_mappings(morpheus.user_opts("mappings", maps))
+utils.set_mappings(morpheus.user_opts("morpheus.user.mappings", maps))
 
