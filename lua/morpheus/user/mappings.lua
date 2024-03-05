@@ -10,30 +10,30 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 
 
-    -- NeoTest
-
-    ["<leader>T"] = { "Tests" },
-    ["<leader>Tn"] = {
-      function() require("neotest").run.run() end,
-      desc = "Run nearest test",
-    },
-    ["<leader>Tf"] = {
-      function() require("neotest").run(vim.fn.expand "%") end,
-      desc = "Run tests in current file",
-    },
-    ["<leader>Td"] = {
-      function() require("neotest").run.run { strategy = "dap" } end,
-      desc = "Run nearest test with debug",
-    },
-    ["<leader>To"] = {
-      function() require("neotest").output.open() end,
-      desc = "Display output of tests",
-    },
-    ["<leader>Ts"] = {
-      function() require("neotest").summary.toggle() end,
-      desc = "Open the summary window",
-    },
-
+    -- -- NeoTest
+    --
+    -- ["<leader>T"] = { "Tests" },
+    -- ["<leader>Tn"] = {
+    --   function() require("neotest").run.run() end,
+    --   desc = "Run nearest test",
+    -- },
+    -- ["<leader>Tf"] = {
+    --   function() require("neotest").run(vim.fn.expand "%") end,
+    --   desc = "Run tests in current file",
+    -- },
+    -- ["<leader>Td"] = {
+    --   function() require("neotest").run.run { strategy = "dap" } end,
+    --   desc = "Run nearest test with debug",
+    -- },
+    -- ["<leader>To"] = {
+    --   function() require("neotest").output.open() end,
+    --   desc = "Display output of tests",
+    -- },
+    -- ["<leader>Ts"] = {
+    --   function() require("neotest").summary.toggle() end,
+    --   desc = "Open the summary window",
+    -- },
+    --
     -- quit
     ["<leader>Q"] = { "<cmd>qa<cr>", desc = "Quit all" },
 

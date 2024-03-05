@@ -25,6 +25,22 @@ vim.g.mapleader = " "
 
 maps.n["<leader>uT"] = { "<cmd>:TransparentToggle<cr>", desc = "TransparentToggle" }
 maps.n["<leader>r"] = { "<cmd>:b#<cr>", desc = "Previous buffer" }
+maps.n["<leader>a"] = { "<cmd>:A<cr>", desc = "Alternate file" }
+
+ -- NeoTest
+
+-- maps.n["<leader>c"] = { function() require("morpheus.utils.buffer").close() end, desc = "Close buffer" }
+maps.n["<leader>T"] =  { desc = "Tests" }
+
+maps.n["<leader>Tn"] = { function() require("neotest").run() end, desc = "Run nearest test" }
+maps.n["<leader>Tf"] = { function() require("neotest").run(vim.fn.expand "%") end, desc = "Run tests in current file" }
+-- maps.n["<leader>Td"] = {
+--   function() require("neotest").run.run { strategy = "dap" } end,
+--   desc = "Run nearest test with debug",
+-- }
+maps.n["<leader>To"] = { function() require("neotest").output.open() end, desc = "Display output of tests" }
+maps.n["<leader>Ts"] = { function() require("neotest").summary.toggle() end, desc = "Open the summary window" }
+
 -- Normal --
 -- Standard Operations
 maps.n["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
@@ -322,6 +338,7 @@ if is_available "toggleterm.nvim" then
   end
   local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
   if python then maps.n["<leader>tp"] = { function() utils.toggle_term_cmd(python) end, desc = "ToggleTerm python" } end
+
   maps.n["<leader>tf"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" }
   maps.n["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" }
   maps.n["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" }
