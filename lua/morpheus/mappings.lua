@@ -166,7 +166,7 @@ end
 
 -- Session Manager
 if is_available "neovim-session-manager" then
-  maps.n["<leader>S"] = sections.S
+
   maps.n["<leader>Sl"] = { "<cmd>SessionManager! load_last_session<cr>", desc = "Load last session" }
   maps.n["<leader>Ss"] = { "<cmd>SessionManager! save_current_session<cr>", desc = "Save this session" }
   maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
