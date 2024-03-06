@@ -453,6 +453,8 @@ maps.n["<leader>uu"] = { ui.toggle_url_match, desc = "Toggle URL highlight" }
 maps.n["<leader>uw"] = { ui.toggle_wrap, desc = "Toggle wrap" }
 maps.n["<leader>uy"] = { ui.toggle_syntax, desc = "Toggle syntax highlighting (buffer)" }
 maps.n["<leader>uh"] = { ui.toggle_foldcolumn, desc = "Toggle foldcolumn" }
+-- width will be 85% of the editor width 
+maps.n["<leader>uZ"] = { function() require("zen-mode").toggle({ window = { width = .85 } }) end, desc = "Toggle Zen Mode" }
 
 local ai_leader = "<C-M>"
 local ai_wleader = "<leader>A"
