@@ -3,6 +3,7 @@ return {
 	ArrowLeft = "<",
 	ArrowRight = ">",
 	BufferClose = "x",
+	Code = "[c]",
   CodeAssistant = "[AI]",
 	DapBreakpoint = "B",
 	DapBreakpointCondition = "C",

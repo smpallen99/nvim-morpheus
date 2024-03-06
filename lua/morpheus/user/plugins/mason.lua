@@ -42,6 +42,7 @@ return {
         "vue",
         "volar",
       },
+      automatic_installation = true,
     },
   },
   {

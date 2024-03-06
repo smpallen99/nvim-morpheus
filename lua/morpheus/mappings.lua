@@ -6,6 +6,7 @@ local ui = require "morpheus.utils.ui"
 local maps = require("morpheus.utils").empty_map_table()
 
 local sections = {
+  c = { desc = get_icon("Code", 1, true) .. "Code" },
   f = { desc = get_icon("Search", 1, true) .. "Find" },
   p = { desc = get_icon("Package", 1, true) .. "Packages" },
   l = { desc = get_icon("ActiveLSP", 1, true) .. "LSP" },
@@ -26,6 +27,9 @@ vim.g.mapleader = " "
 maps.n["<leader>uT"] = { "<cmd>:TransparentToggle<cr>", desc = "TransparentToggle" }
 maps.n["<leader>r"] = { "<cmd>:b#<cr>", desc = "Previous buffer" }
 maps.n["<leader>a"] = { "<cmd>:A<cr>", desc = "Alternate file" }
+
+-- Code
+maps.n["<leader>c"] = sections.c
 
  -- NeoTest
 
@@ -73,7 +77,7 @@ maps.n["<leader>pU"] = { function() require("lazy").update() end, desc = "Plugin
 -- maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = MorpheusNvimAstroNvim Changelog" }
 
 -- Manage Buffers
-maps.n["<leader>c"] = { function() require("morpheus.utils.buffer").close() end, desc = "Close buffer" }
+maps.n["<leader>bc"] = { function() require("morpheus.utils.buffer").close() end, desc = "Close buffer" }
 maps.n["<leader>C"] = { function() require("morpheus.utils.buffer").close(0, true) end, desc = "Force close buffer" }
 maps.n["]b"] =
   { function() require("morpheus.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
@@ -91,7 +95,7 @@ maps.n["<b"] = {
 }
 
 maps.n["<leader>b"] = sections.b
-maps.n["<leader>bc"] =
+maps.n["<leader>ba"] =
   { function() require("morpheus.utils.buffer").close_all(true) end, desc = "Close all buffers except current" }
 maps.n["<leader>bC"] = { function() require("morpheus.utils.buffer").close_all() end, desc = "Close all buffers" }
 maps.n["<leader>bl"] =

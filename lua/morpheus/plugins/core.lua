@@ -205,4 +205,52 @@ return {
       extensions = { astronvim = {} },
     },
   },
+  {
+  "arjunmahishi/flow.nvim",
+    keys = {
+      { "<Leader>cf", desc = "Flow" },
+        {
+            "<Leader>cfs",
+            ":FlowRunSelected<CR>",
+            mode = "x",
+            desc = "Flow run selected",
+        },
+        {
+            "<Leader>cff",
+            ":FlowRunFile<CR>",
+            desc = "Flow run file",
+        },
+        {
+            "<Leader>cfl",
+            ":FlowLauncher<CR>",
+            desc = "Flow launcher",
+        },
+    },
+    config = require("morpheus.plugins.configs.flow"),
+  },
+  -- {
+  --   "CRAG666/code_runner.nvim",
+  --   -- commit = funcs.get_commit("code_runner.nvim", plugins_snapshot),
+  --   dependencies = {
+  --       "nvim-lua/plenary.nvim",
+  --   },
+  --   keys = {
+  --       {
+  --           "<Leader>lrp",
+  --           ":RunProject<CR>",
+  --           desc = "Run project",
+  --       },
+  --       {
+  --           "<Leader>lrf",
+  --           ":RunFile<CR>",
+  --           desc = "Run file",
+  --       },
+  --       {
+  --           "<Leader>lrc",
+  --           ":RunCode<CR>",
+  --           desc = "Run code",
+  --       },
+  --   },
+  --   -- config = editor_config.code_runner_nvim,
+  -- }
 }
