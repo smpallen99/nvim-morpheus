@@ -175,5 +175,11 @@ return {
         on_close = function()
         end,
     },
-  }
+  },
+  {
+     "HiPhish/rainbow-delimiters.nvim",
+      lazy = false,
+    enabled = true,
+     config = require("morpheus.plugins.configs.rainbow-delimiters"),
+  },
 }
